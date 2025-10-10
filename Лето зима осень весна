@@ -1,0 +1,27 @@
+#include <iostream>;
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	cout << "[\x1b[31m1.Лето\x1b[0m]" << endl;
+	cout << "[\x1b[34m2.Зима\x1b[0m]" << endl;
+	cout << "[\x1b[35m3.Осень\x1b[0m]" << endl;
+	cout << "[\x1b[91m4.Весна\x1b[0m]" << endl;
+	cout << "Введите что-то от 1 - 4: ";
+
+	int menu;
+	cin >> menu;
+
+	if (menu == 1) {
+		cout << "Лето";
+	}
+	if (menu == 2) {
+		cout << "Зима";
+	}
+	if (menu == 3) {
+		cout << "Осень";
+	}
+	if (menu == 4) {
+		cout << "Весна";
+	}
+}
