@@ -1,0 +1,48 @@
+#include <iostream>;
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	cout << "Введите число от 0 до 100:";
+
+	int menu;
+	cin >> menu;
+
+	if (menu >= 0 and menu <= 10) {
+		cout << "0-10" << endl;
+
+	}
+	else if (menu > 10 and menu <= 20) {
+		cout << "11 - 20";
+	}
+	else if (menu > 20 and menu <= 30) {
+		cout << "21 - 30";
+	}
+	else if (menu > 30 and menu <= 40) {
+		cout << "31 - 40";
+	}
+	else if (menu > 40 and menu <= 50) {
+		cout << "41 - 50";
+	}
+	else if (menu > 50 and menu <= 60) {
+		cout << "51 - 60";
+	}
+	else if (menu > 60 and menu <= 70) {
+		cout << "61 - 70";
+	}
+	else if (menu > 70 and menu <= 80) {
+		cout << "71 - 80";
+	}
+	else if (menu > 80 and menu <= 90) {
+		cout << "81 - 90";
+	}
+	else if (menu > 90 and menu <= 100) {
+		cout << "91 - 100";
+	}
+	else if (menu < 0) {
+		cout << "Нельзя меньше 0!";
+	}
+	else if (menu > 100) {
+		cout << "Нельзя больше 100!";
+	}
+}
