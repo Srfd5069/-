@@ -1,0 +1,25 @@
+#include <iostream>;
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+
+	cout << "Введите число:";
+		int num1;
+        cin >> num1;
+		cout << "Решите пример:";
+		cout << num1 << " * 1" << endl;
+		cout << "Введите ответ: ";
+		int answer;
+		cin >> answer;
+		if (answer == num1 * 1) {
+			cout << "Вы ответили правильно!";
+		}
+		cout << "Решите пример: ";
+		cout << num1 << " * 1" << endl;
+		cout << "Введите ответ: ";
+		cin >> answer;
+		else if (answer == num1 * 2) {
+			cout << "Вы ответили правильно!";
+		}
+}
