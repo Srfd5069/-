@@ -1,0 +1,34 @@
+#include <iostream>;
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+
+	cout << "Введите число:";
+	int num1;
+	cin >> num1;
+	cout << "Второе число:";
+	int num2;
+	cin >> num2;
+	cout << "Оператор:"; // + -
+	char operation;
+	cin >> operation;
+	if (operation == '+') {
+		//сложение
+		cout << (num1 + num2);
+	}
+	else if (operation == '-') {
+		//вычитание
+		cout << (num1 - num2);
+	}
+	else if (operation == '*') {
+		// умножение
+		cout << (num1 * num2);
+	}
+	else if (operation == '/') {
+		cout << (num1 / num2);
+	}
+	else if (operation == '%') {
+		cout << (num1 % num2);
+	}
+}
