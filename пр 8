@@ -1,0 +1,45 @@
+#include <iostream>;
+using namespace std;
+int main() {
+    setlocale(0, "");
+    int menu;
+    cout << "Переводчик" << endl;
+    cout << "1 Русские слова" << endl;
+    cout << "2 Английские слова" << endl;
+    cout << "3 Выйти" << endl;
+    cout << "Выберите язык: " << endl;
+    cin >> menu;
+    switch (menu) {
+    case 1:
+        cout << "Выбраны русские слова" << endl;
+        cout << "Перевод русских слов" << endl;
+        int word;
+        cout << "1 Дом" << endl;
+        cout << "2 Дорога" << endl;
+        cout << "3 Кот" << endl;
+        cout << "4 Собака" << endl;
+        cout << "5 Мороз" << endl;
+        cout << "6 Товарищ" << endl;
+        cout << "7 Лестница" << endl;
+        cout << "8 Топор" << endl;
+        cout << "9 Яблоко" << endl;
+        cout << "10 Чемодан" << endl;
+        cout << "11 Суббота" << endl;
+        cout << "12 Огород" << endl;
+        cout << "13 Снегирь" << endl;
+        cout << "14 класс" << endl;
+        cout << "15 Крокодил" << endl;
+        cin >> word;
+        switch (word) {
+        case 1:
+            cout << "home" << endl;
+            break;
+        }
+    case 2:
+        cout << "Выбраны английские слова" << endl;
+        break;
+    case 3:
+        cout << "Выход..." << endl;
+        break;
+    }
+}
