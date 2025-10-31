@@ -13,7 +13,7 @@ int main() {
     case 1:
         cout << "Выбраны русские слова" << endl;
         cout << "Перевод русских слов" << endl;
-        int word;
+        int Rusword;
         cout << "1 Дом" << endl;
         cout << "2 Дорога" << endl;
         cout << "3 Кот" << endl;
@@ -29,15 +29,124 @@ int main() {
         cout << "13 Снегирь" << endl;
         cout << "14 класс" << endl;
         cout << "15 Крокодил" << endl;
-        cin >> word;
-        switch (word) {
+        cin >> Rusword;
+        switch (Rusword) {
         case 1:
             cout << "home" << endl;
             break;
+        case 2:
+            cout << "road" << endl;
+            break;
+        case 3:
+            cout << "cat" << endl;
+            break;
+        case 4:
+            cout << "dog" << endl;
+            break;
+        case 5:
+            cout << "frost" << endl;
+            break;
+        case 6:
+            cout << "comrade" << endl;
+            break;
+        case 7:
+            cout << "stairs" << endl;
+                break;
+        case 8:
+            cout << "axe" << endl;
+            break;
+        case 9:
+            cout << "apple" << endl;
+            break;
+        case 10:
+            cout << "suitcase" << endl;
+                break;
+        case 11:
+            cout << "saturday" << endl;
+            break;
+        case 12:
+            cout << "garden" << endl;
+            break;
+        case 13:
+            cout << "snowshoe" << endl;
+            break;
+        case 14:
+            cout << "class" << endl;
+            break;
+        case 15:
+            cout << "crocodile" << endl;
+            break;
         }
+        break;
     case 2:
         cout << "Выбраны английские слова" << endl;
         break;
+        int Ingword;
+        cout << "1 home" << endl;
+        cout << "2 road" << endl;
+        cout << "3 cat" << endl;
+        cout << "4 dog" << endl;
+        cout << "5 frost" << endl;
+        cout << "6 comrade" << endl;
+        cout << "7 stairs" << endl;
+        cout << "8 axe" << endl;
+        cout << "9 apple" << endl;
+        cout << "10 suitcase" << endl;
+        cout << "11 saturday" << endl;
+        cout << "12 garden" << endl;
+        cout << "13 snowshoe" << endl;
+        cout << "14 class" << endl;
+        cout << "15 crocodile" << endl;
+        cin >> Ingword;
+        switch (Ingword) {
+        case 1:
+            cout << "дом" << endl;
+            break;
+        case 2:
+            cout << "дорога" << endl;
+            break;
+        case 3:
+            cout << "кот" << endl;
+            break;
+        case 4:
+            cout << "собака" << endl;
+            break;
+        case 5:
+            cout << "мороз" << endl;
+            break;
+        case 6:
+            cout << "товарищ" << endl;
+            break;
+        case 7:
+            cout << "лестница" << endl;
+            break;
+        case 8:
+            cout << "топор" << endl;
+            break;
+        case 9:
+            cout << "яблоко" << endl;
+            break;
+        case 10:
+            cout << "чемодан" << endl;
+            break;
+        case 11:
+            cout << "суббота" << endl;
+            break;
+        case 12:
+            cout << "огород" << endl;
+            break;
+        case 13:
+            cout << "снегирь" << endl;
+            break;
+        case 14:
+            cout << "класс" << endl;
+            break;
+        case 15:
+            cout << "крокодил" << endl;
+            break;
+        }
+        break;
+
     case 3:
         cout << "Выход..." << endl;
         break;
