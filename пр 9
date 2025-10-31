@@ -1,0 +1,17 @@
+#include <iostream>;
+using namespace std;
+int main() {
+    setlocale(0, "");
+    cout << "Что бы выйти из программы напишите 0" << endl;
+    cout << "Введите число: ";
+    int number;
+    cin >> number;
+    int i = 0;
+
+        while (i <= number) {
+            cout << "Цикл отработал. Круг: " << i << endl;
+            i++;
+        }
+
+    return 0;
+}
