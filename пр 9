@@ -5,19 +5,21 @@ int main() {
     cout << "Что бы выйти из программы напишите 0" << endl;
     cout << "Цикл While" << endl;
     while (true) {
-    cout << "Введите число: ";
-    int number;
-    cin >> number;
-    int i = 1;
+        cout << "Введите число: ";
+        int number;
+        cin >> number;
+        int i = 1;
 
         if (number < 0 or number > 15) {
             cout << "Ошибка! Введите число не меньше 0 и не больше 15!" << endl;
+            continue;
         }
         while (i <= number) {
             cout << "Цикл отработал. Круг: " << i << endl;
             i++;
         }
         if (number == 0) {
+            cout << "Выход...";
             break;
         }
     }
