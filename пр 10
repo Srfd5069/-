@@ -1,0 +1,52 @@
+#include <iostream>;
+#include <ctime>;
+using namespace std;
+int main() {
+    setlocale(0, "");
+    srand(time(NULL));
+    cout << "меню" << endl;
+    cout << "1 \033[32mИграть\033[0m" << endl;
+    cout << "2 \033[31mВыход\033[0m" << endl;
+    int menu, num1;
+    int Quessed_Numbers = 0;
+    int Attemps = 5;
+    cin >> menu;
+
+    if (menu == 2) {
+        cout << "Выход..." << endl;
+        return 0;
+    }
+
+    else if (menu == 1) {
+        while (Attemps > 0 and Quessed_Numbers < 3) {
+            int num = (rand() % 10) + 1;
+            cout << "Угадай число!" << endl;
+            cin >> num1;
+     if (num1 < 0 or num1 > 10) {
+        cout << "Нет цифр в задаче больше 10 или меньше 0" << endl;
+    }
+     else if (num1 == num) {
+         Quessed_Numbers++;
+         cout << "\033[32mВы угадали!\033[0m" << endl;
+     }
+     else if (num1 != num) {
+         cout << "\033[31mНеверно!\033[0m" << endl;
+         Attemps--;
+     }
+     if (Quessed_Numbers == 3) {
+         cout << "Вы угадали все числа!" << endl;
+         return 0;
+     }
+     if (Attemps == 0) {
+         cout << "У вас закончились попытки, вы проиграли." << endl;
+         return 0;
+     }
+     cout << "Угаданных чисел: " << Quessed_Numbers << endl;
+     cout << "Попыток: " << Attemps << endl;
+        }
+        
+    }
+
+    
+
+}
