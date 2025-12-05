@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(0, "");
+    cout << "Введите число: ";
+    int number;
+    cin >> number;
+    while (number > 0) {
+        cout << "Отсчёт: " << number << endl;
+        number--;
+    }
+}
