@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main() {
+    setlocale(0, "");
+    int var;
+    cout << "Геометрические фигуры" << endl;
+    cout << "1 линия" << endl;
+    cin >> var;
+    if (var == 1) {
+        system("cls");
+        int var2;
+        cout << "1 Горизонтальная" << endl;
+        cout << "2 Вертикальная" << endl;
+        cin >> var2;
+        int range;
+        char texture;
+        cout << "Длина: " << endl;
+        cin >> range;
+        cout << "Символ: " << endl;
+        cin >> texture;
+        if (var2 == 1) {
+                int i = 0;
+                while (i < range) {
+                    cout << texture;
+                    i++;
+                }
+
+
+        }
+        if (var2 == 2) {
+            int i = 0;
+            while (i < range) {
+                cout << texture << endl;
+                i++;
+
+            }
+        }
+
+    }
+}
