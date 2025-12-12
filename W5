@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int number;
+	int number2 = 0;
+	cout << "Введите число: ";
+	cin >> number;
+	while (number2 < 11) {
+		cout << number << "*" << number2 << "=" << (number * number2) << endl;
+		number2++;
+	}
+}
