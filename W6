@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0,"");
+    cout << "Введите число: ";
+    int count;
+    cin >> count;
+    int sum = 0;
+    int R = 0;
+    while (count != 0) {
+        cout << "Введите число: ";
+        cin >> count;
+        sum += count;
+        R++;
+        
+    }
+    cout << "Среднее арифметическое число: " << sum / (R - 1);
+}
