@@ -1,0 +1,22 @@
+int main() {
+	setlocale(0,"");
+	cout << "Привет игрок! " << endl;
+	int menu;
+	cout << "1 Начать игру" << endl;
+	cout << "2 Настройки" << endl;
+	cout << "3 Правила" << endl;
+	cout << "4 Выйти" << endl;
+	while (true) {
+		cin >> menu;
+		switch (menu);
+		case 4:
+			cout << "Выход... ";
+				break;
+		case 3:
+			cout << "Правила" << endl;
+			cout << "Игрок получает очки за правильный ответ на вопрос" << endl;
+			cout << "Игрок проходит дальше за правильный ответ" << endl;
+			cout << "Игрок теряет жизнь при неправильном ответе" << endl;
+			cout << "1 Вернуться" << endl;
+			int menu2;
+			cin >> menu2;
