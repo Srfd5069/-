@@ -1,22 +1,54 @@
+#include <iostream>
+using namespace std;
+
 int main() {
-	setlocale(0,"");
-	cout << "Привет игрок! " << endl;
+	setlocale(0, "");
 	int menu;
-	cout << "1 Начать игру" << endl;
-	cout << "2 Настройки" << endl;
-	cout << "3 Правила" << endl;
-	cout << "4 Выйти" << endl;
+	int nameplayer;
+	int menu2;
+	int menu3;
+
 	while (true) {
+		system ("cls");
+		cout << "Привет игрок! " << endl;
+		cout << "1 Начать игру" << endl;
+		cout << "2 Настройки" << endl;
+		cout << "3 Правила" << endl;
+		cout << "4 Выйти" << endl;
 		cin >> menu;
-		switch (menu);
+		switch (menu) {
 		case 4:
 			cout << "Выход... ";
-				break;
+			return 0;
 		case 3:
+			system("cls");
 			cout << "Правила" << endl;
 			cout << "Игрок получает очки за правильный ответ на вопрос" << endl;
 			cout << "Игрок проходит дальше за правильный ответ" << endl;
 			cout << "Игрок теряет жизнь при неправильном ответе" << endl;
 			cout << "1 Вернуться" << endl;
-			int menu2;
+			cin >> menu;
+			break;
+		case 2: 
+			system("cls");
+			cout << "1 Редактировать имя" << endl;
+			cout << "2 Редактировать кол-во вопросов" << endl;
+			cout << "3 Редактировать цвет интерфейса" << endl;
+			cout << "4 Выйти" << endl;
 			cin >> menu2;
+			switch (menu2) {
+			case 1:
+				system("cls");
+				cout << "Введите новое имя: ";
+					cin >> nameplayer;
+					cout << "Вы поменяли имя на" << nameplayer << endl;
+					cin >> menu3;
+					
+					
+			}
+		
+		}
+			 
+	}
+	
+}
