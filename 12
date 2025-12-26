@@ -4,12 +4,13 @@ using namespace std;
 int main() {
 	setlocale(0, "");
 	int menu;
-	int nameplayer;
+	string nameplayer;
 	int menu2;
-	int menu3;
+	int menu3, menu4 = 0;
+	int numofquest = 0;
 
 	while (true) {
-		system ("cls");
+		system("cls");
 		cout << "Привет игрок! " << endl;
 		cout << "1 Начать игру" << endl;
 		cout << "2 Настройки" << endl;
@@ -29,7 +30,7 @@ int main() {
 			cout << "1 Вернуться" << endl;
 			cin >> menu;
 			break;
-		case 2: 
+		case 2:
 			system("cls");
 			cout << "1 Редактировать имя" << endl;
 			cout << "2 Редактировать кол-во вопросов" << endl;
@@ -40,15 +41,40 @@ int main() {
 			case 1:
 				system("cls");
 				cout << "Введите новое имя: ";
-					cin >> nameplayer;
-					cout << "Вы поменяли имя на" << nameplayer << endl;
-					cin >> menu3;
-					
-					
+				cin >> nameplayer;
+				cout << "Вы поменяли имя на " << nameplayer << endl;
+				cin >> menu3;
+				break;
+			case 2:
+				system("cls");
+				cout << "Выберите кол-во вопросов: " << endl;
+				cout << "8,10,12" << endl;
+				cin >> numofquest;
+				switch (menu4) {
+				case 8:
+					system("cls");
+					cout << "Вы выбрали 8 заданий!";
+					numofquest = 8;
+					break;
+				case 10:
+					system("cls");
+					cout << "Вы выбрали 10 заданий!";
+					numofquest = 10;
+					break;
+				case 12:
+					system("cls");
+					cout << "Вы выбрали 12 заданий!";
+					numofquest = 12;
+					break;
+				}
+				
+				
+
+
 			}
-		
+
 		}
-			 
+
 	}
-	
+
 }
