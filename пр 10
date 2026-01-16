@@ -1,52 +1,116 @@
-#include <iostream>;
-#include <ctime>;
+#include <iostream>
 using namespace std;
+
 int main() {
-    setlocale(0, "");
-    srand(time(NULL));
-    cout << "меню" << endl;
-    cout << "1 \033[32mИграть\033[0m" << endl;
-    cout << "2 \033[31mВыход\033[0m" << endl;
-    int menu, num1;
-    int Quessed_Numbers = 0;
-    int Attemps = 5;
-    cin >> menu;
+	setlocale(0, "");
+	int menu;
+	string nameplayer;
+	int menu2;
+	int menu3, menu4 = 0;
+	int numofquest = 0;
+	int colour;
+	int lives = 3;
+	int points = 0;
+	int otvet;
 
-    if (menu == 2) {
-        cout << "Выход..." << endl;
-        return 0;
-    }
+	while (true) {
+		system("cls");
+		cout << "Привет игрок! " << endl;
+		cout << "1 Начать игру" << endl;
+		cout << "2 Настройки" << endl;
+		cout << "3 Правила" << endl;
+		cout << "4 Выйти" << endl;
+		cin >> menu;
+		switch (menu) {
+		case 4:
+			cout << "Выход... ";
+			return 0;
+		case 3:
+			system("cls");
+			cout << "Правила" << endl;
+			cout << "Игрок получает очки за правильный ответ на вопрос" << endl;
+			cout << "Игрок проходит дальше за правильный ответ" << endl;
+			cout << "Игрок теряет жизнь при неправильном ответе" << endl;
+			cout << "1 Вернуться" << endl;
+			cin >> menu;
+			break;
+		case 2:
+			system("cls");
+			cout << "1 Редактировать имя" << endl;
+			cout << "2 Редактировать кол-во вопросов" << endl;
+			cout << "3 Редактировать цвет интерфейса" << endl;
+			cout << "4 Выйти" << endl;
+			cin >> menu2;
+			switch (menu2) {
+			case 1:
+				system("cls");
+				cout << "Введите новое имя: ";
+				cin >> nameplayer;
+				cout << "Вы поменяли имя на " << nameplayer << endl;
+				cin >> menu3;
+				break;
+			case 2:
+				system("cls");
+				cout << "Выберите кол-во вопросов: " << endl;
+				cout << "8,10,12" << endl;
+				cin >> numofquest;
+				switch (menu4) {
+				case 8:
+					system("cls");
+					cout << "Вы выбрали 8 заданий!";
+					numofquest = 8;
+					break;
+				case 10:
+					system("cls");
+					cout << "Вы выбрали 10 заданий!";
+					numofquest = 10;
+					break;
+				case 12:
+					system("cls");
+					cout << "Вы выбрали 12 заданий!";
+					numofquest = 12;
+					break;
+				}
+			case 3:
+				system("cls");
+				cout << "1 фиолетовый" << endl;
+				cout << "2 красный" << endl;
+				cout << "выберите цвет: ";
+				cin >> colour;
+				if (colour == 1) {
+					system("color 5");
+				}
+				if (colour == 2) {
+					system("color 4");
+				}
+			case 4:
+				break;
 
-    else if (menu == 1) {
-        while (Attemps > 0 and Quessed_Numbers < 3) {
-            int num = (rand() % 10) + 1;
-            cout << "Угадай число!" << endl;
-            cin >> num1;
-     if (num1 < 0 or num1 > 10) {
-        cout << "Нет цифр в задаче больше 10 или меньше 0" << endl;
-    }
-     else if (num1 == num) {
-         Quessed_Numbers++;
-         cout << "\033[32mВы угадали!\033[0m" << endl;
-     }
-     else if (num1 != num) {
-         cout << "\033[31mНеверно!\033[0m" << endl;
-         Attemps--;
-     }
-     if (Quessed_Numbers == 3) {
-         cout << "Вы угадали все числа!" << endl;
-         return 0;
-     }
-     if (Attemps == 0) {
-         cout << "У вас закончились попытки, вы проиграли." << endl;
-         return 0;
-     }
-     cout << "Угаданных чисел: " << Quessed_Numbers << endl;
-     cout << "Попыток: " << Attemps << endl;
-        }
-        
-    }
 
-    
+
+
+
+
+			}
+		case 1:
+			system("cls");
+			cout << "игрок: " << nameplayer << "|" << " жизни: " << lives << "|" << " очки: " << points << endl;
+			cout << "1 вопрос. ыыыыы?" << endl;
+			cout << "1 ыыыы. 2 ыыыыы?" << endl;
+			cin >> otvet;
+			if (otvet == 1) {
+				cout << "вы ответили правильно!" << endl;
+				points++;
+
+			}
+			if (otvet == 2) {
+				cout << "вы ответили неправильно!";
+				lives--;
+			}
+
+
+		}
+
+	}
 
 }
