@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+	string reset = "\033[0m";
+	string colour = "\033[32m";
+	int size;
+	cout << "Введите размер квадрата: ";
+	cin >> size;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if (i >= size / 2 && j >= size / 2) {
+				cout << colour << "# " << reset;
+			}
+			else {
+				cout << "# ";
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}
