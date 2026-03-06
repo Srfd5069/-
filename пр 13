@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+setlocale(0, "");
+int choice;
+int choice2;
+int choice3;
+int size;
+string texture;
+cout << "[+] Геометрические фигуры" << endl << "[1] Линия " << endl << "[2] Квадрат " << endl;
+cout << "Выберите фигуру: " << endl;
+cin >> choice;
+system("cls");
+if (choice == 2) {
+	cout << "[+] фигура квадрат" << endl << "[1] Заполненый" << endl << "[2] Пустой" << endl;
+	cout << "Выберите тип: ";
+		cin >> choice2;
+		if (choice2 == 1) {
+			cout << "Введите размер и текстуру карты" << endl;
+			cout << "Размер: ";
+			cin >> size;
+			cout << "Текстура: ";
+				cin >> texture;
+				for (int i = 0; i < size; i++) {
+					for (int j = 0; j < size; j++) {
+							cout << texture;
+					}
+					cout << "\n";
+
+				}
+		}
+}
+}
