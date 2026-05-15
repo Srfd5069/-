@@ -1,0 +1,153 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(0, "");
+    int choice;
+    int choice2;
+    int size;
+    int width, height;
+    string texture;
+
+    cout << "[+] Геометрические фигуры" << endl;
+    cout << "[1] Линия " << endl;
+    cout << "[2] Квадрат " << endl;
+    cout << "[3] Прямоугольник" << endl;
+    cout << "[4] Треугольник\n";
+    cout << "Выберите фигуру: ";
+    cin >> choice;
+    system("cls");
+
+    if (choice == 1) {
+        cout << "[+] Фигура линия" << endl << "Размер: ";
+        cin >> size;
+        cout << "Текстура: ";
+        cin >> texture;
+        for (int r = 0; r < size; r++) {
+            cout << texture;
+        }
+        cout << "\n";
+    }
+
+    if (choice == 2) {
+        cout << "[+] фигура квадрат" << endl
+            << "[1] Заполненный" << endl
+            << "[2] Пустой" << endl;
+        cout << "Выберите тип: ";
+        cin >> choice2;
+
+        if (choice2 == 1) {
+            cout << "Введите размер и текстуру" << endl;
+            cout << "Размер: ";
+            cin >> size;
+            cout << "Текстура: ";
+            cin >> texture;
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    cout << texture;
+                }
+                cout << "\n";
+            }
+        }
+
+        if (choice2 == 2) {
+            cout << "Размер: ";
+            cin >> size;
+            cout << "Текстура: ";
+            cin >> texture;
+            for (int y = 0; y < size; y++) {
+                for (int x = 0; x < size; x++) {
+                    if (y == 0 || y == size - 1 || x == 0 || x == size - 1) {
+                        cout << texture << " ";
+                    }
+                    else {
+                        cout << ". ";
+                    }
+                }
+                cout << endl;
+            }
+        }
+    }
+
+    if (choice == 3) {
+        cout << "[+] Фигура прямоугольник" << endl;
+        cout << "Выберите тип\n" << "[1] Заполненный\n" << "[2] Пустой\n";
+        cin >> choice2;
+
+        if (choice2 == 1) {
+            cout << "Ширина: ";
+            cin >> width;
+            cout << "Высота: ";
+            cin >> height;
+            cout << "Текстура: ";
+            cin >> texture;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    cout << texture;
+                }
+                cout << endl;
+            }
+        }
+
+        if (choice2 == 2) {
+            cout << "Ширина: ";
+            cin >> width;
+            cout << "Высота: ";
+            cin >> height;
+            cout << "Текстура: ";
+            cin >> texture;
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    if (y == 0 || y == height - 1 || x == 0 || x == width - 1) {
+                        cout << texture << " ";
+                    }
+                    else {
+                        cout << ". ";
+                    }
+                }
+                cout << endl;
+            }
+        }
+    }
+    if (choice == 4) {
+        cout << "[1] Заполненный\n";
+        cout << "[2] Пустой\n";
+            cin >> choice2;
+            if (choice2 == 1) {
+                cout << "Размер: \n";
+                cin >> size;
+                cout << "Текстура: \n";
+                cin >> texture;
+                for (int y = 1; y <= size; y++) {
+                    for (int space = 1; space <= size - y; space++) {
+                        cout << ". ";
+                    }
+                    for (int x = 1; x <= 2 * y - 1; x++) {
+                        cout << texture << " ";
+                    }
+                    cout << endl;
+                }
+            }
+            if (choice2 == 2) {
+                cout << "Размер: ";
+                cin >> size;
+                cout << "\nТекстура: ";
+                cin >> texture;
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size * 2 - 1; j++) {
+                        if (j == size - 1 - i || j == size - 1 + i || i == size - 1) {
+                            cout << texture;
+                        }
+                        else {
+                            cout << " ";
+                        }
+                    }
+                    cout << endl;
+                }
+
+            }
+    }
+
+
+    return 0;
+}
