@@ -1,0 +1,294 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <windows.h>
+
+using namespace std;
+
+// === ТЕМА: ПЕРЕМЕННЫЕ И СТРУКТУРЫ ===
+struct PlayerSettings {
+    string name;
+    char symbol;
+    int colorCode;
+    int wins = 0;
+    int losses = 0;
+    int draws = 0;
+    double score = 0.0;
+
+    void updateScore() {
+        // Подсчет очков по точной формуле из задания
+        score = (wins * 5.0) + (losses * -6.0) + (draws * -1.2);
+    }
+};
+
+// Глобальные переменные настроек
+int currentTheme = 1; 
+PlayerSettings p1 = { "Игрок 1", 'X', 11 }; 
+PlayerSettings p2 = { "Игрок 2", 'O', 12 }; 
+PlayerSettings comp = { "Компьютер", 'O', 14 }; 
+
+// === ТЕМА: FUNCTION (Функции для управления цветом и экраном) ===
+void setColor(int code) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, code);
+}
+
+int getThemeColor() {
+    // === ТЕМА: IF - ELSE ===
+    if (currentTheme == 1) {
+        return 7;  // Белая тема
+    } else if (currentTheme == 2) {
+        return 10; // Зеленая тема
+    } else {
+        return 13; // Фиолетовая тема
+    }
+}
+
+void clearScreen() {
+    system("cls");
+}
+
+// === ТЕМА: FUNCTION + ARRAY (Вывод поля и блока информации) ===
+// Передаем массив игрового поля в функцию как параметр
+void drawGameBoard(char board[9], string infoText, int infoColor) {
+    int tc = getThemeColor();
+    
+    // Вывод шапки по ТЗ
+    setColor(tc); cout << "+ | Крестики нолики        + | Информация\n";
+    
+    // Отрисовка сетки. Вместо ручного вывода используем массив по индексам [0]-[8]
+    cout << "     " << board[0] << " | " << board[1] << " | " << board[2] << "             ";
+    if (!infoText.empty()) {
+        setColor(infoColor); cout << infoText;
+    }
+    cout << "\n";
+
+    setColor(tc); cout << "    ---+---+---\n";
+    cout << "     " << board[3] << " | " << board[4] << " | " << board[5] << "\n";
+    setColor(tc); cout << "    ---+---+---\n";
+    cout << "     " << board[6] << " | " << board[7] << " | " << board[8] << "\n\n";
+}
+
+// === ТЕМА: FUNCTION + IF-ELSE (Проверка условий победы) ===
+bool checkWin(char board[9], char s) {
+    // Проверяем все возможные комбинации линия за линией
+    if (board[0] == s && board[1] == s && board[2] == s) return true;
+    if (board[3] == s && board[4] == s && board[5] == s) return true;
+    if (board[6] == s && board[7] == s && board[8] == s) return true;
+    
+    if (board[0] == s && board[3] == s && board[6] == s) return true;
+    if (board[1] == s && board[4] == s && board[7] == s) return true;
+    if (board[2] == s && board[6] == s && board[8] == s) return true;
+    
+    if (board[0] == s && board[4] == s && board[8] == s) return true;
+    if (board[2] == s && board[4] == s && board[6] == s) return true;
+    
+    return false;
+}
+
+// === ТЕМА: FUNCTION + SWITCH ===
+void showStatistics() {
+    while (true) {
+        clearScreen();
+        p1.updateScore(); 
+        p2.updateScore(); 
+        comp.updateScore();
+        
+        setColor(getThemeColor());
+        cout << "+ | Статистика\n\n";
+        cout << "\t\tW\tL\tD  |  Очки\n";
+        cout << "1 | " << p1.name << "\t" << p1.wins << "\t" << p1.losses << "\t" << p1.draws << "  |  " << p1.score << "\n";
+        cout << "2 | " << p2.name << "\t" << p2.wins << "\t" << p2.losses << "\t" << p2.draws << "  |  " << p2.score << "\n";
+        cout << "3 | " << comp.name << "\t" << comp.wins << "\t" << comp.losses << "\t" << comp.draws << "  |  " << comp.score << "\n\n";
+        cout << "0 | Назад\n\n> | Ввод: ";
+        
+        int choice; 
+        cin >> choice;
+        if (choice == 0) return;
+    }
+}
+
+void configurePlayer(PlayerSettings& player, bool isBot) {
+    while (true) {
+        clearScreen(); 
+        setColor(getThemeColor());
+        cout << "+ | Настройки игрока [" << player.name << "]\n\n";
+        
+        // Переключатели через IF-ELSE
+        if (!isBot) {
+            cout << "1 | Ник\t: " << player.name << "\n";
+        }
+        cout << "2 | Фигура\t: " << player.symbol << "\n";
+        cout << "3 | Цвет (код)\t: " << player.colorCode << "\n";
+        cout << "0 | Назад\n\n> | Ввод: ";
+        
+        int choice; 
+        cin >> choice;
+        if (choice == 0) return;
+        
+        if (choice == 1 && !isBot) { 
+            cout << "Введите ник: "; 
+            cin >> player.name; 
+        } else if (choice == 2) { 
+            cout << "Введите символ: "; 
+            cin >> player.symbol; 
+        } else if (choice == 3) { 
+            cout << "Введите код цвета (1-15): "; 
+            cin >> player.colorCode; 
+        }
+    }
+}
+
+void showSettings() {
+    while (true) {
+        clearScreen(); 
+        setColor(getThemeColor());
+        cout << "+ | Настройки\n\n";
+        cout << "1 | Игрок 1 (" << p1.name << ")\n";
+        cout << "2 | Игрок 2 (" << p2.name << ")\n";
+        cout << "3 | Компьютер\n";
+        cout << "4 | Тема интерфейса (Текущая: " << currentTheme << ")\n";
+        cout << "0 | Назад\n\n> | Ввод: ";
+        
+        int choice; 
+        cin >> choice;
+        if (choice == 0) return;
+        
+        if (choice == 1) configurePlayer(p1, false);
+        else if (choice == 2) configurePlayer(p2, false);
+        else if (choice == 3) configurePlayer(comp, true);
+        else if (choice == 4) { 
+            clearScreen(); 
+            cout << "Выберите тему (1 - Белая, 2 - Зеленая, 3 - Фиолетовая): "; 
+            cin >> currentTheme; 
+        }
+    }
+}
+
+// === ТЕМА: FUNCTION + FOR + ARRAY + IF-ELSE (Игровой цикл) ===
+void playGame(bool vsBot) {
+    // ТЕМА: ARRAY (Стандартный символьный массив для игрового поля)
+    char board[9] = {'1','2','3','4','5','6','7','8','9'};
+    int turn = 1; 
+    PlayerSettings& opponent = vsBot ? comp : p2;
+    string lastMoveInfo = "";
+    int lastMoveColor = 7;
+
+    // ТЕМА: FOR (Цикл фор отвечает за макс. количество ходов - 9 штук)
+    for (int moves = 0; moves < 9; moves++) {
+        clearScreen();
+        drawGameBoard(board, lastMoveInfo, lastMoveColor);
+        
+        int choice;
+        char currentSymbol;
+        string currentPlayerName;
+        int currentColor;
+
+        // Определение активного игрока через IF-ELSE
+        if (turn == 1) {
+            currentSymbol = p1.symbol;
+            currentPlayerName = p1.name;
+            currentColor = p1.colorCode;
+        } else {
+            currentSymbol = opponent.symbol;
+            currentPlayerName = opponent.name;
+            currentColor = opponent.colorCode;
+        }
+
+        setColor(getThemeColor()); 
+        cout << "> | Ходит " << currentPlayerName << " : ";
+
+        if (turn == 2 && vsBot) {
+            // Логика бота
+            int botChoice;
+            do { 
+                botChoice = rand() % 9; 
+            } while (board[botChoice] == p1.symbol || board[botChoice] == comp.symbol);
+            
+            board[botChoice] = comp.symbol;
+            lastMoveInfo = "+ | " + comp.name + " ход на клетку: " + to_string(botChoice + 1);
+            lastMoveColor = comp.colorCode;
+            Sleep(600);
+        } else {
+            // Ход человека
+            cin >> choice;
+            if (choice == 0) return; // Выход в меню
+            
+            // Проверка корректности ввода через IF
+            if (choice < 1 || choice > 9 || board[choice - 1] == p1.symbol || board[choice - 1] == p2.symbol || board[choice - 1] == comp.symbol) {
+                moves--; // Возвращаем счетчик итерации назад, так как ход не засчитан
+                continue;
+            }
+            
+            board[choice - 1] = currentSymbol;
+            lastMoveInfo = "+ | " + currentPlayerName + " ход на клетку: " + to_string(choice);
+            lastMoveColor = currentColor;
+        }
+
+        // Проверка выигрыша
+        if (checkWin(board, currentSymbol)) {
+            clearScreen();
+            drawGameBoard(board, lastMoveInfo, lastMoveColor);
+            setColor(currentColor); cout << "Победил " << currentPlayerName << "!\n\n";
+            
+            if (turn == 1) { 
+                p1.wins++; opponent.losses++; 
+            } else { 
+                opponent.wins++; p1.losses++; 
+            }
+            setColor(getThemeColor()); cout << "Нажмите Enter..."; cin.ignore(); cin.get();
+            return;
+        }
+        
+        // Смена очередности хода
+        if (turn == 1) turn = 2;
+        else turn = 1;
+    }
+
+    // Если цикл FOR завершился, а победителя нет — объявляем ничью
+    clearScreen();
+    drawGameBoard(board, lastMoveInfo, lastMoveColor);
+    setColor(getThemeColor()); cout << "Ничья!\n\n";
+    p1.draws++; opponent.draws++;
+    cout << "Нажмите Enter..."; cin.ignore(); cin.get();
+}
+
+void chooseGameMode() {
+    while (true) {
+        clearScreen(); 
+        setColor(getThemeColor());
+        cout << "+ | Крестики нолики\n\n1 | Одиночная игра\n2 | Два игрока\n\n0 | Назад\n\n> | Ввод: ";
+        int choice; 
+        cin >> choice;
+        if (choice == 0) return;
+        if (choice == 1) { playGame(true); return; }
+        if (choice == 2) { playGame(false); return; }
+    }
+}
+
+// === ГЛАВНАЯ СТРУКТУРА ПРОГРАММЫ ===
+int main() {
+    // Поддержка русского языка для Windows
+    SetConsoleCP(1251); 
+    SetConsoleOutputCP(1251);
+    srand(static_cast<unsigned int>(time(0)));
+
+    while (true) {
+        clearScreen(); 
+        setColor(getThemeColor());
+        cout << "+ | Меню\n\n1 | Начать игру\n2 | Статистика\n3 | Настройки\n4 | Выйти\n\n> | Ввод: ";
+        
+        int choice; 
+        cin >> choice;
+        
+        // === ТЕМА: SWITCH-CASE ===
+        switch (choice) {
+            case 1: chooseGameMode(); break;
+            case 2: showStatistics(); break;
+            case 3: showSettings(); break;
+            case 4: clearScreen(); cout << "До свидания!\n"; return 0;
+            default: break;
+        }
+    }
+}
