@@ -1,0 +1,74 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	srand(time(NULL));
+	
+	const int SIZE = 10;
+
+	int number_int[SIZE]{};
+	short number_short[SIZE]{};
+	long number_long[SIZE]{};
+	float number_float[SIZE]{};
+	double number_double[SIZE]{};
+	string number_string[SIZE]{};
+	char number_char[SIZE]{};
+	bool number_bool[SIZE]{};
+
+	for (int i = 0; i < SIZE; i++) {
+		number_int[i] = rand() % 100;
+		cout << number_int[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_short[i] = rand() % 100;
+		cout << number_short[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_long[i] = rand() % 100;
+		cout << number_long[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_float[i] = rand() % 100;
+		cout << number_float[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_double[i] = rand() % 100;
+		cout << number_double[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_char[i] = 'a' + rand() % 50;
+		cout << number_char[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_bool[i] = true;
+		cout << number_bool[i] << endl;
+	} 
+
+	cout << endl;
+
+	for (int i = 0; i < SIZE; i++) {
+		number_string[i] = "kgnnejfsnfuufeuyfubfesuyffefefebhscdse" + rand() % 25;
+		cout << number_string[i] << endl;
+	} 
+} 
