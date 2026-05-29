@@ -1,0 +1,217 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int number;
+	int long_;
+	int long_2;
+	char texture;
+	int kol = 0;
+	cout << "Программа - “Геометрические фигуры”" << endl;
+	cout << "1. Линия" << endl << "2. Квадрат" << endl << "3. Прямоугольник" << endl << "4. Треугольник" << endl << "5. Решетка" << endl << "6. Крестик" << endl << "7. Плюс" << endl;
+	cout << "Выберите номер фигуры: ";
+	cin >> number;
+	system("cls");
+	switch (number) {
+	case 1: {
+		cout << "Выбрана фигура: Линия" << endl;
+		cout << "1. Горизонтальный" << endl;
+		cout << "2. Вертикальный" << endl;
+		cout << "Выберете тип линии: ";
+		cin >> number;
+		system("cls");
+		if (number != 1 and number != 2) {
+			cout << "нету такой команды";
+			return 0;
+		} // if
+		cout << "Длинна линии: ";
+		cin >> long_;
+		cout << "Текстура линии: ";
+		cin >> texture;
+		system("cls");
+		if (number == 1) {
+			while (kol != long_) {
+				cout << texture;
+				kol++;
+			} // while
+		} // if
+		else {
+			while (kol != long_) {
+				cout << texture << endl;
+				kol++;
+			} // while
+		} // else
+		break;
+	} // case 1
+	case 2: {
+		cout << "Выбрана фигура: Квадрат" << endl;
+		cout << "1. Заполненый" << endl;
+		cout << "2. Пустой" << endl;
+		cout << "Выберете тип квадрата: ";
+		cin >> number;
+		system("cls");
+		cout << "Размер: ";
+		cin >> long_;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		if (number == 1) {
+			for (int a = 0; a != long_; a++) {
+				for (int b = 0; b != long_; b++) {
+					cout << " " << texture;
+				} // for внутри
+				cout << endl;
+			} // for
+		} // if
+		else {
+			for (int a = 0; a != long_; a++) {
+				for (int b = 0; b != long_; b++) {
+					if (a == 0 || b == 0 || a == long_ - 1 || b == long_ - 1) {
+						cout << " " << texture;
+					} // if
+					else {
+						cout << "  ";
+					} // else
+				} // for
+				cout << endl;
+			} // for
+		} // else
+		break;
+	}
+	case 3: {
+		cout << "Выбрана фигура: Прямогольник" << endl;
+		cout << "1. Заполненый" << endl;
+		cout << "2. Пустой" << endl;
+		cout << "Выберете тип: ";
+		cin >> number;
+		system("cls");
+		cout << "Высота: ";
+		cin >> long_;
+		cout << "Ширина: ";
+		cin >> long_2;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		if (number == 1) {
+			for (int a = 0; a != long_; a++) {
+				for (int b = 0; b != long_2; b++) {
+					cout << " " << texture;
+				} // for
+				cout << endl;
+			} // for
+		} // if
+		else {
+			for (int a = 0; a != long_; a++) {
+				for (int b = 0; b != long_2; b++) {
+					if (a == 0 || b == 0 || a == long_ - 1 || b == long_2 - 1) {
+						cout << " " << texture;
+					} // if
+					else {
+						cout << "  ";
+					} // else
+				} // for
+				cout << endl;
+			} // for
+		} // else
+	} // case 3
+	case 4: {
+		cout << "Выбрана фигура: Треугольник" << endl;
+		cout << "1. Заполненый" << endl;
+		cout << "2. Пустой" << endl;
+		cout << "Выберете тип: ";
+		cin >> number;
+		system("cls");
+		cout << "Размер: ";
+		cin >> long_;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		if (number == 1) {
+			for (int y = 0; y < long_; y++) {
+				for (int x = 0; x < long_; x++) {
+					if (x >= long_ / 2 - y and x <= long_ / 2 + y and y <= long_ / 2) {
+						cout << " " << texture;
+					} // if
+					else {
+						cout << "  ";
+					}
+				} // for
+				cout << endl;
+			} // for
+		} // if
+		else {
+			for (int y = 0; y < long_; y++) {
+				for (int x = 0; x < long_; x++) {
+					if (x == long_ / 2 + y || x == long_ / 2 - y || y == long_ / 2) {
+						cout << " " << texture;
+					} // if
+					else {
+						cout << "  ";
+					}
+				} // for
+				cout << endl;
+			} // for
+		} // else
+	} // case 4
+	case 5: {
+		cout << "Выбрана фигура: Решетка" << endl;
+		cout << "Размер: ";
+		cin >> long_;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		for (int y = 0; y < long_; y++) {
+			for (int x = 0; x < long_; x++) {
+				if (x % 2 == 1 || y % 2 == 1) {
+					cout << " " << texture;
+				} // if
+				else {
+					cout << "  ";
+				}
+			} // for
+			cout << endl;
+		} // for
+	} // case 5
+	case 6: {
+		cout << "Выбрана фигура: Крестик" << endl;
+		cout << "Размер: ";
+		cin >> long_;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		for (int y = 0; y < long_; y++) {
+			for (int x = 0; x < long_; x++) {
+				if (x == long_ - 1 - y || x == y) {
+					cout << " " << texture;
+				} // if
+				else {
+					cout << "  ";
+				}
+			} // for
+			cout << endl;
+		} // for
+	} // case 6
+	case 7: {
+		cout << "Выбрана фигура: Плюс" << endl;
+		cout << "Размер: ";
+		cin >> long_;
+		cout << "Текстура: ";
+		cin >> texture;
+		system("cls");
+		for (int y = 0; y < long_; y++) {
+			for (int x = 0; x < long_; x++) {
+				if (x == long_ / 2 || y == long_ / 2) {
+					cout << " " << texture;
+				} // if
+				else {
+					cout << "  ";
+				}
+			} // for
+			cout << endl;
+		} // for
+	} // case 7
+	} // swich
+
+} // main
