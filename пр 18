@@ -25,7 +25,7 @@ int main() {
 		if (number != 1 and number != 2) {
 			cout << "нету такой команды";
 			return 0;
-		} // if
+		} 
 		cout << "Длинна линии: ";
 		cin >> long_;
 		cout << "Текстура линии: ";
@@ -35,16 +35,16 @@ int main() {
 			while (kol != long_) {
 				cout << texture;
 				kol++;
-			} // while
-		} // if
+			} 
+		} 
 		else {
 			while (kol != long_) {
 				cout << texture << endl;
 				kol++;
-			} // while
-		} // else
+			} 
+		}
 		break;
-	} // case 1
+	} 
 	case 2: {
 		cout << "Выбрана фигура: Квадрат" << endl;
 		cout << "1. Заполненый" << endl;
@@ -61,23 +61,23 @@ int main() {
 			for (int a = 0; a != long_; a++) {
 				for (int b = 0; b != long_; b++) {
 					cout << " " << texture;
-				} // for внутри
+				} 
 				cout << endl;
-			} // for
-		} // if
+			} 
+		} 
 		else {
 			for (int a = 0; a != long_; a++) {
 				for (int b = 0; b != long_; b++) {
 					if (a == 0 || b == 0 || a == long_ - 1 || b == long_ - 1) {
 						cout << " " << texture;
-					} // if
+					} 
 					else {
 						cout << "  ";
-					} // else
-				} // for
+					} 
+				} 
 				cout << endl;
-			} // for
-		} // else
+			} 
+		} 
 		break;
 	}
 	case 3: {
@@ -98,24 +98,24 @@ int main() {
 			for (int a = 0; a != long_; a++) {
 				for (int b = 0; b != long_2; b++) {
 					cout << " " << texture;
-				} // for
+				}
 				cout << endl;
-			} // for
-		} // if
+			} 
+		} 
 		else {
 			for (int a = 0; a != long_; a++) {
 				for (int b = 0; b != long_2; b++) {
 					if (a == 0 || b == 0 || a == long_ - 1 || b == long_2 - 1) {
 						cout << " " << texture;
-					} // if
+					} 
 					else {
 						cout << "  ";
-					} // else
-				} // for
+					} 
+				} r
 				cout << endl;
-			} // for
-		} // else
-	} // case 3
+			}
+		} 
+	} 
 	case 4: {
 		cout << "Выбрана фигура: Треугольник" << endl;
 		cout << "1. Заполненый" << endl;
@@ -133,28 +133,28 @@ int main() {
 				for (int x = 0; x < long_; x++) {
 					if (x >= long_ / 2 - y and x <= long_ / 2 + y and y <= long_ / 2) {
 						cout << " " << texture;
-					} // if
+					} 
 					else {
 						cout << "  ";
 					}
-				} // for
+				} 
 				cout << endl;
-			} // for
-		} // if
+			} 
+		} 
 		else {
 			for (int y = 0; y < long_; y++) {
 				for (int x = 0; x < long_; x++) {
 					if (x == long_ / 2 + y || x == long_ / 2 - y || y == long_ / 2) {
 						cout << " " << texture;
-					} // if
+					} 
 					else {
 						cout << "  ";
 					}
-				} // for
+				} 
 				cout << endl;
-			} // for
-		} // else
-	} // case 4
+			} 
+		} 
+	} 
 	case 5: {
 		cout << "Выбрана фигура: Решетка" << endl;
 		cout << "Размер: ";
@@ -166,14 +166,14 @@ int main() {
 			for (int x = 0; x < long_; x++) {
 				if (x % 2 == 1 || y % 2 == 1) {
 					cout << " " << texture;
-				} // if
+				} 
 				else {
 					cout << "  ";
 				}
-			} // for
+			} 
 			cout << endl;
-		} // for
-	} // case 5
+		} 
+	} 
 	case 6: {
 		cout << "Выбрана фигура: Крестик" << endl;
 		cout << "Размер: ";
@@ -185,14 +185,14 @@ int main() {
 			for (int x = 0; x < long_; x++) {
 				if (x == long_ - 1 - y || x == y) {
 					cout << " " << texture;
-				} // if
+				} 
 				else {
 					cout << "  ";
 				}
-			} // for
+			} 
 			cout << endl;
-		} // for
-	} // case 6
+		} 
+	} 
 	case 7: {
 		cout << "Выбрана фигура: Плюс" << endl;
 		cout << "Размер: ";
@@ -204,14 +204,14 @@ int main() {
 			for (int x = 0; x < long_; x++) {
 				if (x == long_ / 2 || y == long_ / 2) {
 					cout << " " << texture;
-				} // if
+				} 
 				else {
 					cout << "  ";
 				}
-			} // for
+			} 
 			cout << endl;
-		} // for
-	} // case 7
-	} // swich
+		} 
+	} 
+	} 
 
-} // main
+} 
